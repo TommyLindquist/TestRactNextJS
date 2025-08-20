@@ -1,7 +1,7 @@
 export const pages = [
   {
     slug: "nameofanything",
-    label: "nameofanything",
+    label: "Nameofanything",
     title: "Welcome to the nameofanything!",
     content:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. At saepe, illo itaque eos voluptatem dolorum recusandae cumque quibusdam optio consequatur necessitatibus excepturi adipisci nesciunt inventore, hic aliquid, ab velit voluptates.",

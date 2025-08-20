@@ -17,7 +17,6 @@ export const imgsizes = {
 };
 
 const url = "https://graphql.anilist.co";
-let defaultErrorHandler = (error: string) => console.log('Fetch failed:', error);
 
 // https://docs.anilist.co/guide/graphql/
 // https://docs.anilist.co/guide/graphql/queries/media
