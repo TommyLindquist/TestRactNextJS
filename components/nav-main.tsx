@@ -1,6 +1,8 @@
+import { pages } from "@/app/lib/data/slugArray";
 import Link from "next/link"
 
  const randomNumber = Math.floor(Math.random() * 100) + 1;
+ const randomSlug = Math.floor(Math.random() * pages.length);
 
  const linkList = [
     { href: "/", label: "Home"},
@@ -9,6 +11,7 @@ import Link from "next/link"
     { href: "/about/history", label: "History"},
     { href: "/about/getimage", label: "Get Image"},
     { href: `/about/dynamicroutetest/${randomNumber}`, label: `Dyna Route Test id ${randomNumber}` },
+    { href: `/${pages[randomSlug].slug}`, label: "Test slug" },
     { href: "/anilist", label: "Anilist" },
 ];
 
