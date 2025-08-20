@@ -1,5 +1,5 @@
 import { fetchWithRetry } from "@/app/services/data-service";
-import { AnilistResponse, FetchWithRetryOptions } from "../interfaces";
+import { FetchWithRetryOptions } from "../interfaces";
 
 export const imgsizes = {
     extraLarge: {
@@ -80,25 +80,14 @@ const createOptionIfNotExist = (opt?: FetchWithRetryOptions):
 }
 
 export async function fetchAllMedia<T>(
-    opt?: FetchWithRetryOptions,
-    CustomErrorHandler: Function = defaultErrorHandler
-): Promise<T[]> {
-    opt = createOptionIfNotExist(opt);
-    const results: T[] = await fetchWithRetry(url, opt)
-        .then(response => response.json())
-        .then(({ data: { Page: { media } } }: AnilistResponse) => media) // parameter destructuring, return by media ...
-        .catch(error => CustomErrorHandler(error));
-
-    return results || [] as T[];
-}
-
-export async function fetchAllMediaResult<T>(
-    success: Function,
-    fail: Function,
-    opt?: FetchWithRetryOptions
-): Promise<T[]> {
-
-    let err = "";
-    const data: T[] = await fetchAllMedia<T>(opt, (error: string) => err = String(error));
-    return !err ? success(data) : fail(err);
+  opt?: FetchWithRetryOptions
+): Promise<T> {
+  opt = createOptionIfNotExist(opt);
+  try {
+    const response = await fetchWithRetry(url, opt);
+    const { data: { Page: { media } } } = await response.json();
+    return media as T;
+} catch (error) {
+    return { error: String(error) } as T;
+  }
 }
