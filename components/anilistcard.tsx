@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function AnilistCard({ media, className }: { media: Media, className?: string }) {
     return (
-        <article key={media.id} className={`bg-amber-50 text-gray-600 space-y-4 ${className}`}>
+        <article className={`bg-amber-50 text-gray-600 space-y-4 ${className}`}>
             <h2 className="htext-2xl font-bold">{media.title.english}</h2>
             <Link href={`/recipe/${media.id}`}>
             <Image src={media.coverImage.medium} alt={media.title.english || "Picture not available"} width={imgsizes.large.width} height={imgsizes.large.height} />
