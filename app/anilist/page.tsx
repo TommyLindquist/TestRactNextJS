@@ -1,5 +1,4 @@
 import AnilistCard from "@/components/anilistcard";
-import { Media } from "../lib/interfaces";
 import DataError from "@/components/dataerror";
 import { fetchAllMedia } from "../lib/data/media";
 
