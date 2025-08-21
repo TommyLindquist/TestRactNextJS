@@ -5,7 +5,7 @@ import { fetchAllMedia } from "../lib/data/media";
 
 export default async function AnilistPage() {
 
- const mediaCards = await fetchAllMedia<Media[]>();
+ const mediaCards = await fetchAllMedia();
 
   return (
     <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(30ch,1fr))] content-stretch">

@@ -1,5 +1,5 @@
 import { fetchWithRetry } from "@/app/services/data-service";
-import { FetchWithRetryOptions } from "../interfaces";
+import { FetchWithRetryOptions, Media } from "../interfaces";
 
 export const imgsizes = {
     extraLarge: {
@@ -79,9 +79,9 @@ const createOptionIfNotExist = (opt?: FetchWithRetryOptions)
     return opt;
 }
 
-export async function fetchAllMedia<T>(
+export async function fetchAllMedia(
   opt?: FetchWithRetryOptions
-): Promise<T | { error: string }> {
+): Promise<Media[] | { error: string }> {
   try {
     const response = await fetchWithRetry(url, createOptionIfNotExist(opt));
     const { data: { Page: { media } } } = await response.json();
