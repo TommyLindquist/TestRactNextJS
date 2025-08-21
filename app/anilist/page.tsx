@@ -10,7 +10,7 @@ export default async function AnilistPage({
  
  const { error } = await searchParams;
 
- error && error == "true" && (() => {
+ error && error === "true" && (() => {
    throw new Error("This  is a test error for the Anilist page., should be taken care of error.ts");
  })();
 
