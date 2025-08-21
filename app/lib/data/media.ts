@@ -41,6 +41,7 @@ query ($page: Int = 1, $perPage: Int = 1, $isAdult: Boolean = false, $type: Medi
         status
         description(asHtml: false)
         genres
+        bannerImage
         coverImage {
             extraLarge
             large
@@ -60,8 +61,8 @@ const variables = {
     genre_not_in: ["Ecchi", "Hentai"]
 };
 
-const createOptionIfNotExist = (opt?: FetchWithRetryOptions):
-    FetchWithRetryOptions => {
+const createOptionIfNotExist = (opt?: FetchWithRetryOptions)
+: FetchWithRetryOptions => {
     (opt = opt || {}) && !opt.init && Object.assign(opt, {
         init: {
             method: "POST",
@@ -80,13 +81,12 @@ const createOptionIfNotExist = (opt?: FetchWithRetryOptions):
 
 export async function fetchAllMedia<T>(
   opt?: FetchWithRetryOptions
-): Promise<T> {
-  opt = createOptionIfNotExist(opt);
+): Promise<T | { error: string }> {
   try {
-    const response = await fetchWithRetry(url, opt);
+    const response = await fetchWithRetry(url, createOptionIfNotExist(opt));
     const { data: { Page: { media } } } = await response.json();
-    return media as T;
+    return media;
 } catch (error) {
-    return { error: String(error) } as T;
+    return { error: String(error) };
   }
 }
