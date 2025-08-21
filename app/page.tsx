@@ -1,11 +1,8 @@
-import NavMain from "@/components/nav-main";
 import SayHello from "@/components/say-hello";
-import Image from "next/image";
 import { Recipe } from "./lib/interfaces";
-import { fetchAllRecipes, fetchAllRecipesResult } from "./lib/data/recipe";
+import { fetchAllRecipesResult } from "./lib/data/recipe";
 import Card from "@/components/card";
 import DataError from "@/components/dataerror";
-//console.dir(recipes, { depth: null });
 
 export default async function Home() {
 
@@ -19,7 +16,6 @@ export default async function Home() {
       <SayHello className="text-red-500 text-3xl" />
 
       <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(30ch,1fr))] content-stretch">
-        {/* {recipes.map(recipe => <Card key={recipe.id} className="p-4" recipe={recipe} />)} */}
         {recipes}
       </div>
     </>
