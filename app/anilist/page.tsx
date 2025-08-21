@@ -14,8 +14,6 @@ export default async function AnilistPage({
    throw new Error("This  is a test error for the Anilist page., should be taken care of error.ts");
  })();
 
- console.log(error);
-
  const mediaCards = await fetchAllMedia();
 
   return (
