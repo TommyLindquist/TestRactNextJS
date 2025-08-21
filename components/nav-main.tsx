@@ -12,7 +12,8 @@ import Link from "next/link"
     { href: "/about/getimage", label: "Get Image"},
     { href: `/about/dynamicroutetest/${randomNumber}`, label: `Dyna Route Test id ${randomNumber}` },
     { href: `/${pages[randomSlug].slug}`, label: "Test slug" },
-    { href: "/anilist", label: "Anilist" },
+    { href: "/anilist", label: "Anilist" }, 
+    { href: "/anilist?error=true", label: "AnilistErrPage" },
 ];
 
 export default function NavMain({className=""}: {className?: string}) {

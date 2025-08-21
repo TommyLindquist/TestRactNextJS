@@ -2,7 +2,19 @@ import AnilistCard from "@/components/anilistcard";
 import DataError from "@/components/dataerror";
 import { fetchAllMedia } from "../lib/data/media";
 
-export default async function AnilistPage() {
+export default async function AnilistPage({
+  searchParams
+}: { 
+  searchParams: Promise<{ [key: string]: string | string[] }> 
+}) {
+ 
+ const { error } = await searchParams;
+
+ error && error == "true" && (() => {
+   throw new Error("This  is a test error for the Anilist page., should be taken care of error.ts");
+ })();
+
+ console.log(error);
 
  const mediaCards = await fetchAllMedia();
 
