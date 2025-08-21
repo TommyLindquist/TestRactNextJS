@@ -18,7 +18,7 @@ import Link from "next/link"
 
 export default function NavMain({className=""}: {className?: string}) {
     return (
-        <nav className={`bg-gray-800 text-white p-4 rounded-lg ${className}`}>
+        <nav className={`fixed bg-gray-800 text-white p-4 rounded-lg ${className}`}>
 
             <ul className="flex gap-4">
                {linkList.map((link, idx) => (

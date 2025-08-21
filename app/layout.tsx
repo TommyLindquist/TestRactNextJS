@@ -32,7 +32,7 @@ export default function RootLayout({
           <NavMain className="" />
         </header>
         <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-1 pb-20">
-          <main className="flex flex-col gap-[16px] row-start-2 items-center sm:items-start">
+          <main className="flex flex-col gap-[16px] row-start-2 items-center sm:items-start mt-20">
             {children}
 
           </main>
